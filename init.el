@@ -82,6 +82,10 @@
   :config
   (gcmh-mode 1))
 
+(defun save-some-buffers-no-confirm ()
+  (interactive)
+  (save-some-buffers 'no-confirm))
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :demand t
@@ -99,9 +103,16 @@
   (setq evil-symbol-word-search t)
   ;; Set end of line selection to not include the newline character
   (setq evil-want-visual-char-semi-exclusive t)
+  :general
+  (:keymaps '(text-mode-map prog-mode-map)
+   :states 'normal
+   "RET" #'save-some-buffers-no-confirm)
+  (:states 'insert
+   "C-e" #'end-of-line)
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
+  (evil-declare-not-repeat #'save-some-buffers-no-confirm)
   (evil-mode 1))
 
 ;; Prefix keys for quick action menu
@@ -380,11 +391,20 @@ DIR must include a .project file to be considered a project."
 
   :general
   ;; Quick bindings
+  ("C-s" #'consult-line)
+  (:states
+   'normal
+   "C-e" #'consult-buffer
+   "M-e" #'consult-buffer-other-window)
   (:keymaps 'mo-quick-menu-map
    "/" #'consult-line
    "?" #'consult-line-multi
    "." #'consult-fd
    "," #'consult-ripgrep)
+  (:keymaps 'mo-quick-menu-map
+   :prefix "f"
+   "f" #'find-file
+   "F" #'find-file-other-window)
   (:keymaps 'mo-quick-menu-map
    :prefix "s"
    "h" #'consult-history
