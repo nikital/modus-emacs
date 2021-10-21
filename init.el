@@ -90,10 +90,7 @@
   (setq evil-want-keybinding nil)
   ;; Undo
   (setq evil-undo-system 'undo-redo)
-  ;; Enable Emacs native bindings in insert mode
-  (setq evil-disable-insert-state-bindings t)
-  (setq evil-want-C-u-delete nil)
-  (setq evil-want-C-w-delete nil)
+  (setq evil-want-C-u-delete t)
   ;; Yanking
   (setq evil-want-Y-yank-to-eol t)
   ;; Use evil search instead of the native search module
