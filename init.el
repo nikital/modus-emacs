@@ -86,6 +86,13 @@
   (interactive)
   (save-some-buffers 'no-confirm))
 
+(defun nik/evil-scroll-up ()
+  (interactive)
+  (evil-scroll-line-up 5))
+(defun nik/evil-scroll-down ()
+  (interactive)
+  (evil-scroll-line-down 5))
+
 ;; Init evil mode for Vim emulation in Emacs
 (use-package evil
   :demand t
@@ -107,12 +114,17 @@
   (:keymaps '(text-mode-map prog-mode-map)
    :states 'normal
    "RET" #'save-some-buffers-no-confirm)
+  (:states 'motion
+   "C-j" #'nik/evil-scroll-down
+   "C-k" #'nik/evil-scroll-up)
   (:states 'insert
    "C-e" #'end-of-line)
   :config
   ;; Set word movement to operate on symbol boundaries
   (defalias #'forward-evil-word #'forward-evil-symbol)
   (evil-declare-not-repeat #'save-some-buffers-no-confirm)
+  (evil-declare-not-repeat #'nik/evil-scroll-down)
+  (evil-declare-not-repeat #'nik/evil-scroll-up)
   (evil-mode 1))
 
 ;; Prefix keys for quick action menu
