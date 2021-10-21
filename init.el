@@ -1126,7 +1126,8 @@ run the attached function (if exists) and enable lsp"
     t)
 
   ;; Before exiting Emacs, ask the user to save the current session
-  (add-to-list 'kill-emacs-query-functions #'mo-ask-save-desktop t))
+  ;; (add-to-list 'kill-emacs-query-functions #'mo-ask-save-desktop t)
+  )
 
 ;; Init zoom-window for toggling window zoom
 (use-package zoom-window
