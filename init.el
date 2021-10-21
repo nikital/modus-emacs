@@ -854,10 +854,14 @@ run the attached function (if exists) and enable lsp"
 (use-package company
   :general
   ("M-<tab>" #'company-complete)
+  (:keymaps 'company-active-map
+   "C-w" nil
+   "C-d" nil)
   :init
   (setq company-minimum-prefix-length 1)
   (setq company-idle-delay 0.0)
-  (global-company-mode))
+  (global-company-mode +1)
+  (company-tng-mode +1))
 
 ;; Init company-box for completions with icons
 (use-package company-box
