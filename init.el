@@ -309,6 +309,14 @@
   :general
   (:keymaps 'mo-quick-menu-map
    "z" #'selectrum-repeat)
+  (:keymaps 'selectrum-minibuffer-map
+   "C-l" #'selectrum-insert-current-candidate
+   "C-j" #'selectrum-next-candidate
+   "C-k" #'selectrum-previous-candidate
+   "C-h" #'selectrum-backward-kill-sexp
+
+   "<prior>" #'selectrum-previous-page
+   "<next>" #'selectrum-next-page)
   :config
   ;; Highlight only visible candidates
   (setq orderless-skip-highlighting (lambda () selectrum-is-active))
