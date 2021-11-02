@@ -341,6 +341,9 @@
    "C-k" #'selectrum-previous-candidate
    "C-h" #'selectrum-backward-kill-sexp
 
+   "C-p" #'previous-history-element
+   "C-n" #'next-history-element
+
    "<prior>" #'selectrum-previous-page
    "<next>" #'selectrum-next-page)
   :config
