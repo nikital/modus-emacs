@@ -100,7 +100,7 @@
   ;; Needed for evil-collection
   (setq evil-want-keybinding nil)
   ;; Undo
-  (setq evil-undo-system 'undo-redo)
+  (setq evil-undo-system 'undo-tree)
   (setq evil-want-C-u-delete t)
   ;; Yanking
   (setq evil-want-Y-yank-to-eol t)
@@ -126,6 +126,10 @@
   (evil-declare-not-repeat #'nik/evil-scroll-down)
   (evil-declare-not-repeat #'nik/evil-scroll-up)
   (evil-mode 1))
+
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode 1))
 
 ;; Prefix keys for quick action menu
 (setq mo-quick-menu-prefix "SPC")
