@@ -284,7 +284,7 @@
   ;; Visually indent text under bullets
   (setq org-startup-indented t)
   (setq org-cycle-separator-lines 1)
-  (setq org-directory "~/org")
+  (setq org-directory "~/wiki")
   (setq org-agenda-files `(,org-directory))
   (setq org-agenda-include-diary t)
   (setq org-agenda-start-on-weekday 0)
@@ -310,7 +310,8 @@
    "t" #'org-roam-tag-add
    "c" #'org-roam-capture)
   :custom
-  (org-roam-directory org-directory)
+  (org-roam-directory
+   (concat (file-name-as-directory org-directory) "org-roam"))
   :init
   (setq org-roam-v2-ack t)
   :config
