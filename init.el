@@ -1220,6 +1220,9 @@ run the attached function (if exists) and enable lsp"
 (add-to-list 'default-frame-alist '(height . 55))
 (add-to-list 'default-frame-alist '(width . 210))
 
+;; Don't split vertically
+(setq split-height-threshold nil)
+
 ;; Scroll incrementally
 (setq scroll-step 1)
 ;; Don't automatically recenter after scrolling
