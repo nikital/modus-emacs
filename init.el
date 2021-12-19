@@ -1128,13 +1128,16 @@ run the attached function (if exists) and enable lsp"
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
   ;; Set brighter comments
   (setq doom-vibrant-brighter-comments t)
-  (load-theme 'doom-vibrant t)
+  (load-theme 'doom-gruvbox t)
   ;; Distinguish between var reads and writes by underlining lsp write highlights
   (set-face-attribute 'lsp-face-highlight-write nil :underline t)
   ;; Set buffer margins background color
   (set-face-attribute 'fringe nil :background (face-attribute 'mode-line :background))
   ;; Load icons here, so their background will be aligned with the theme
   (treemacs-icons-dired-mode))
+
+;; Use dope font
+(add-to-list 'default-frame-alist '(font . "M PLUS 1 Code-11"))
 
 ;; Init minions for collapsing the minor mode indicator in the modeline
 (use-package minions
