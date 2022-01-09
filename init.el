@@ -723,6 +723,8 @@ DIR must include a .project file to be considered a project."
                                   c++-mode
                                   objc-mode
                                   swift-mode
+                                  haskell-mode
+                                  haskell-literate-mode
                                   go-mode
                                   csharp-mode
                                   java-mode
@@ -878,6 +880,9 @@ run the attached function (if exists) and enable lsp"
 
 ;; Init haskell-mode for Haskell support
 (use-package haskell-mode)
+
+;; Init lsp-haskell for Haskell language server
+(use-package lsp-haskell)
 
 ;; Init go-mode for Go support
 (use-package go-mode)
